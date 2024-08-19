@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+   @apply box-border;
+}
+
+html {
+   @apply scroll-smooth;
+}
+
+body {
+   @apply p-0 m-0 text-black leading-tight;
+}
+
+@layer components {
+   a {
+      @apply no-underline;
+   }
+
+   a:hover {
+      @apply underline underline-offset-2;
+   }
+
+   input,
+   select,
+   textarea,
+   button {
+      @apply focus:outline-none bg-transparent;
+   }
+
+   .text-linear {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+   }
+
+   [role="button"],
+   button {
+      @apply select-none;
+   }
+}
+
+/* 
+ Mobile Responsiveness
+*/
+/* 2XL */
+@media screen and (max-width: 1440px) {
+   .text-6xl {
+      @apply text-[64px];
+   }
+   .text-5xl {
+      @apply text-[40px];
+   }
+   .text-3xl {
+      @apply text-[28px];
+   }
+}
+/* LG */
+@media screen and (max-width: 1024px) {
+   .text-6xl {
+      @apply text-[48px];
+   }
+   .text-5xl {
+      @apply text-[36px];
+   }
+   .text-3xl {
+      @apply text-[24px];
+   }
+   .text-xl {
+      @apply text-[20px];
+   }
+   .text-lg {
+      @apply text-[18px];
+   }
+}
+/* SM */
+@media screen and (max-width: 640px) {
+   .text-6xl {
+      @apply text-[36px];
+   }
+   .text-5xl {
+      @apply text-[30px];
+   }
+   .text-3xl {
+      @apply text-[20px];
+   }
+   .text-xl {
+      @apply text-[18px];
+   }
+   .text-lg {
+      @apply text-[16px];
+   }
+}
