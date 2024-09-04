@@ -46,9 +46,9 @@ function ContactUs() {
               </p>
               <div className="grid grid-cols-2 gap-5 w-max">
                 <Checkbox label="Transfer" />
-                <Checkbox label="Boat Trips" />
                 <Checkbox label="Tours" />
-                <Checkbox label="Bus Rental" />
+                <Checkbox label="Business Travel" />
+                <Checkbox label="Leisure and Professional Events" />
                 <Checkbox label="Other" />
               </div>
             </div>
