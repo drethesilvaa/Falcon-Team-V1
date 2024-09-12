@@ -33,6 +33,11 @@ const fonts = [roboto, sourceCodePro, inter, ubuntu];
 
 export const metadata: Metadata = {
   title: "Falcon Team - Website",
+  openGraph: {
+    title: "Falcon Team - Website",
+    description:
+      "With Falcon Team, it's possible to have the best transfer services from a highly experienced team in personal and high-risk protection. Discreet and professional staff guarantees privacy, safety, and tailored experiences for their guests, from business executives to high-asset individuals. We professionally support our customers during trips around landmarks in Portugal in a safe and immersive way. See Portugal with no hassle-Have your journey in Portugal planned in every detail with a taste for an unforgettable experience with Falcon Team.",
+  },
   description:
     "With Falcon Team, it's possible to have the best transfer services from a highly experienced team in personal and high-risk protection. Discreet and professional staff guarantees privacy, safety, and tailored experiences for their guests, from business executives to high-asset individuals. We professionally support our customers during trips around landmarks in Portugal in a safe and immersive way. See Portugal with no hassle-Have your journey in Portugal planned in every detail with a taste for an unforgettable experience with Falcon Team.",
   icons: "/images/favicon.png",
