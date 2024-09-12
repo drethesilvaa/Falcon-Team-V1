@@ -5,23 +5,34 @@ import { ContactsUsEmailTemplate } from "@/components/common/ContactsUsEmailTemp
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { data, error } = await resend.emails.send({
-    from: "Acme <onboarding@resend.dev>",
-    to: ["andressilva03@gmail.com"],
-    subject: "Hello world",
-    react: ContactsUsEmailTemplate({
-      firstName: "John",
-      email: "",
-      lastName: "",
-      message: "",
-      phoneNumber: 0,
-      services: [],
-    }),
-  });
+  const { firstName, lastName, email, phoneNumber, message, services } =
+    req.body;
 
-  if (error) {
-    return res.status(400).json(error);
+  if (!firstName || !email) {
+    return res.status(400).json({ error: "Missing required fields" });
   }
 
-  res.status(200).json(data);
+  try {
+    const { data, error } = await resend.emails.send({
+      from: "Falcon Team Support <falconteamsupport@support.com>",
+      to: ["aurelio.wis@gmail.com", "andressilva03@gmail.com"],
+      subject: "Falcon Team Support - Client Contact Request",
+      react: ContactsUsEmailTemplate({
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        message,
+        services,
+      }),
+    });
+
+    if (error) {
+      return res.status(400).json(error);
+    }
+
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to send the email." });
+  }
 };
