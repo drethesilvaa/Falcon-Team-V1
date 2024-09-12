@@ -15,7 +15,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { data, error } = await resend.emails.send({
       from: "Falcon Team Support <falconteamsupport@resend.dev>",
-      to: ["aurelio.wis@gmail.com", "andressilva03@gmail.com"],
+      to: ["andressilva03@gmail.com"],
       subject: "Falcon Team Support - Client Contact Request",
       react: ContactsUsEmailTemplate({
         firstName,
