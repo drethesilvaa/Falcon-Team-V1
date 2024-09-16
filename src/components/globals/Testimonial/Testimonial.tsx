@@ -22,25 +22,26 @@ function Testimonial() {
   };
 
   const handleSubmitTestimonial = async (testimonial: any) => {
-    try {
-      const response = await fetch("/api/submit-testimonial", {
+    toast.promise(
+      fetch("/api/submit-testimonial", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(testimonial),
-      });
-
-      if (response.ok) {
-        toast.success(
-          "Thank you for sharing your testimonial! It has been submitted and is now awaiting approval. We appreciate your feedback and will review it shortly."
-        );
-      } else {
-        toast.error("Failed to submit the testimonial.");
+      }).then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to submit the testimonial");
+        }
+        return response.json();
+      }),
+      {
+        pending: "Submitting your testimonial...",
+        success:
+          "Thank you for sharing your testimonial! It has been submitted and is now awaiting approval. We appreciate your feedback and will review it shortly.",
+        error: "An error occurred. Please try again.",
       }
-    } catch (error) {
-      toast.error("An error occurred. Please try again.");
-    }
+    );
   };
 
   const sliderSettings = {
