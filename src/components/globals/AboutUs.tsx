@@ -12,7 +12,7 @@ function AboutUs() {
           About Us
         </h2>
 
-        <div className="grid grid-cols-2 gap-10">
+        <div className="grid sm:grid-cols-2 gap-10">
           <div className="flex flex-col gap-10 items-start">
             <div data-aos="fade-up" className="">
               <div className="font-source-sans-pro text-lg leading-[2]">
