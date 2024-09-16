@@ -9,16 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.0",
+    "@prisma/client": "^5.19.1",
     "aos": "^2.3.4",
+    "apollo-server-micro": "^3.13.0",
     "axios": "^1.7.7",
+    "graphql": "^16.9.0",
     "latest": "^0.2.0",
+    "micro": "^10.0.1",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
     "react-google-recaptcha": "^3.1.0",
     "react-rating": "^2.0.5",
     "react-scroll": "^1.9.0",
-    "resend": "^4.0.0"
+    "react-slick": "^0.30.2",
+    "react-toastify": "^10.0.5",
+    "resend": "^4.0.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
@@ -27,9 +37,11 @@
     "@types/react-dom": "^18",
     "@types/react-google-recaptcha": "^2.1.9",
     "@types/react-scroll": "^1.8.10",
+    "@types/react-slick": "^0.23.13",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
+    "prisma": "^5.19.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

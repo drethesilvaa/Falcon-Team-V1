@@ -5,8 +5,9 @@ import React from "react";
 import Hero from "@/components/globals/Hero";
 import Services from "@/components/globals/Services";
 import AboutUs from "@/components/globals/AboutUs";
-import Testimonial from "@/components/globals/Testimonial";
+import Testimonial from "@/components/globals/Testimonial/Testimonial";
 import ContactUs from "@/components/globals/ContactUs";
+import { Link as ScrollLink } from "react-scroll";
 
 function Home() {
   return (
@@ -31,12 +32,17 @@ function Home() {
                   WE ALWAYS DELIVER <br />
                   WHAT YOU NEED
                 </h1>
-                <button
+                <ScrollLink
                   data-aos="fade-up"
+                  href="#"
+                  offset={-32}
+                  activeClass="active"
+                  to={"contact-us"}
+                  spy
                   className="bg-[#415A77] text-white font-source-sans-pro font-semibold text-3xl pt-1 pb-2 px-12 rounded-lg shadow-sm"
                 >
-                  GET IN TOUCH{" "}
-                </button>
+                  GET IN TOUCH
+                </ScrollLink>
               </div>
             </section>
             <Services />

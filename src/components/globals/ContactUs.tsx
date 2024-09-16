@@ -3,6 +3,7 @@ import Checkbox from "@/components/common/Checkbox";
 import TextArea from "@/components/common/TextArea";
 import TextField from "@/components/common/TextField";
 import ReCAPTCHA from "react-google-recaptcha";
+import { toast } from "react-toastify";
 
 function ContactUs() {
   const [firstName, setFirstName] = useState("");
@@ -23,7 +24,7 @@ function ContactUs() {
 
   const sendMessage = async () => {
     if (!captchaValue) {
-      alert("Please complete the CAPTCHA");
+      toast.error("Please complete the CAPTCHA");
       return;
     }
 
@@ -44,12 +45,12 @@ function ContactUs() {
       });
 
       if (response.ok) {
-        alert("Message sent successfully!");
+        toast.success("Message sent successfully!");
       } else {
-        alert("Failed to send the message.");
+        toast.error("Failed to send the message.");
       }
     } catch (error) {
-      alert("An error occurred. Please try again.");
+      toast.error("An error occurred. Please try again.");
     }
   };
 
@@ -64,8 +65,7 @@ function ContactUs() {
             Let’s get in touch{" "}
           </h2>
           <p data-aos="fade-up" className="font-source-sans-pro text-xl">
-            <span className="font-light">You can reach us anytime via</span>{" "}
-            <span className="text-gray-900">email@email.com</span>
+            <span className="font-light">You can reach us anytime</span>{" "}
           </p>
         </div>
         <div className="grid lg:grid-cols-2 gap-[10%]">
@@ -105,7 +105,7 @@ function ContactUs() {
               >
                 Services
               </p>
-              <div className="grid grid-cols-2 gap-5 w-max">
+              <div className="grid sm:grid-cols-2 gap-5 w-full">
                 <Checkbox
                   label="Transfer"
                   onChange={() => handleServiceChange("Transfer")}

@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Roboto, Source_Code_Pro, Inter, Ubuntu } from "next/font/google";
 import Layout from "@/components/globals/Layout";
 import GoogleAdsense from "@/components/google/GoogleAdSense";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -47,8 +49,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={fonts.map((font) => font.variable).join(" ")}>
+        <ToastContainer position="top-center" />
         <Layout>{children}</Layout>
       </body>
+
       <GoogleAdsense pId="4038932100311065" />
     </html>
   );

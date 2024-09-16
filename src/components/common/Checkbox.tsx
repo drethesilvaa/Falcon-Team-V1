@@ -1,21 +1,31 @@
 import React from "react";
+import { Checkbox as MuiCheckbox, FormControlLabel } from "@mui/material";
 
-interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
-   label: string;
+interface CheckboxProps {
+  label: string;
+  className?: string; // Optional className prop
+  checked?: boolean;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-function Checkbox({className, label, ...rest}: CheckboxProps) {
-   return (
-      <label
-         data-aos="fade-up"
-         className={`flex items-center gap-2.5 ${className || ""}`}
-      >
-         <input {...rest} className="size-5" type="checkbox" />
-         <span className="text-neutral-700 font-source-sans-pro text-base leading-tight">
-            {label}
-         </span>
-      </label>
-   );
+function Checkbox({
+  label,
+  className,
+  checked,
+  onChange,
+  ...rest
+}: CheckboxProps) {
+  return (
+    <FormControlLabel
+      control={<MuiCheckbox checked={checked} onChange={onChange} {...rest} />}
+      label={label}
+      className={className}
+      sx={{
+        display: "flex",
+        gap: "10px",
+      }}
+    />
+  );
 }
 
 export default Checkbox;
