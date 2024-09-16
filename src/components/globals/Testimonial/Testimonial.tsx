@@ -32,7 +32,9 @@ function Testimonial() {
       });
 
       if (response.ok) {
-        toast.success("Thank you for your testimonial!");
+        toast.success(
+          "Thank you for sharing your testimonial! It has been submitted and is now awaiting approval. We appreciate your feedback and will review it shortly."
+        );
       } else {
         toast.error("Failed to submit the testimonial.");
       }
