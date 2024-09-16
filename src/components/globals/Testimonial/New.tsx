@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { toast } from "react-toastify";
 import Rating from "@mui/material/Rating";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface TestimonialDialogProps {
   open: boolean;
@@ -28,7 +29,8 @@ function NewTestimonialDialog({
 }: TestimonialDialogProps) {
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState<number | null>(0);
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
   const handleSubmit = () => {
     if (!content || !author || rating === 0) {
@@ -36,7 +38,12 @@ function NewTestimonialDialog({
       return;
     }
 
-    onSubmit({ content, author, rating });
+    if (!captchaValue) {
+      toast.error("Please complete the ReCAPTCHA.");
+      return;
+    }
+
+    onSubmit({ content, author, rating: rating || 0 }); // rating cannot be null
     onClose();
   };
 
@@ -69,6 +76,12 @@ function NewTestimonialDialog({
                 setRating(newValue);
               }
             }}
+          />
+        </div>
+        <div className="mt-4">
+          <ReCAPTCHA
+            sitekey="6LcBCEEqAAAAADjV07Mus77kLoquFsQmDaio5o4H"
+            onChange={(value) => setCaptchaValue(value)}
           />
         </div>
       </DialogContent>
