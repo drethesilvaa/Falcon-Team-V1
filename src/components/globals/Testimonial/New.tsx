@@ -37,6 +37,12 @@ function NewTestimonialDialog({
       toast.error("Please complete all fields.");
       return;
     }
+
+    if (!captchaValue) {
+      toast.error("Please complete the ReCAPTCHA.");
+      return;
+    }
+
     onSubmit({ content, author, rating: rating || 0 }); // rating cannot be null
     onClose();
   };
