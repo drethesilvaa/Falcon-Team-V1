@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "npm install --legacy-peer-deps"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -19,7 +18,7 @@
     "axios": "^1.7.7",
     "graphql": "^16.9.0",
     "latest": "^0.2.0",
-    "micro": "^10.0.1",
+    "micro": "^9.3.4",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
